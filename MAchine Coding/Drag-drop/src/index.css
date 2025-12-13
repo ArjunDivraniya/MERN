@@ -1,0 +1,188 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2em;
+  line-height: 1.1;
+}
+/* Simple styles for Drag component */
+.dd-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 16px;
+}
+
+.dd-title {
+  margin-bottom: 16px;
+}
+
+.dd-form {
+  display: grid;
+  gap: 12px;
+}
+
+.dd-dropzone {
+  border: 2px dashed #888;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+}
+
+.dd-dropzone.dragging {
+  border-color: #646cff;
+  background: #f3f6ff;
+}
+
+.dd-btn {
+  background: #f9f9f9;
+  color: inherit;
+}
+
+.dd-btn.primary {
+  background: #646cff;
+  color: white;
+}
+
+.dd-file-input {
+  display: none;
+}
+
+.dd-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dd-file-name {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.dd-output {
+  margin-top: 16px;
+}
+
+.dd-pre {
+  padding: 12px;
+  background: #f5f5f5;
+  border-radius: 6px;
+  max-height: 300px;
+  overflow: auto;
+  color: #000; /* ensure black text when showing content */
+}
+
+.dd-placeholder {
+  color: #777;
+}
+
+.dd-content {
+  margin-top: 16px;
+}
+
+.dd-file-info {
+  background: #f0f0f0;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.dd-file-info p {
+  margin: 4px 0;
+  color: #333;
+}
+
+.dd-image {
+  max-width: 100%;
+  max-height: 500px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dd-pdf {
+  width: 100%;
+  height: 600px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.dd-binary-info {
+  text-align: center;
+  padding: 24px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  color: #666;
+}
+
+.dd-download {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 20px;
+  background: #646cff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.dd-download:hover {
+  background: #535bf2;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
