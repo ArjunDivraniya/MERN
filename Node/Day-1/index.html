@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #user-container {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .user-card {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .user-card h2 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .user-card p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>User Data</h1>
+    <div id="user-container"></div>
+
+    <script>
+        // Fetch data from local API
+        async function fetchUserData() {
+            const userContainer = document.getElementById("user-container");
+
+            try {
+                const response = await fetch("http://localhost:5000/users");
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch data");
+                }
+
+                const users = await response.json();
+                console.log(users);
+                displayUserData(users);
+
+            } catch (error) {
+                console.error(error);
+                userContainer.innerHTML = `<p class="error">Error loading user data</p>`;
+            }
+        }
+
+        // Display users on UI
+        function displayUserData(users) {
+            const userContainer = document.getElementById("user-container");
+            userContainer.innerHTML = "";
+
+            users.forEach(user => {
+                const userCard = document.createElement("div");
+                userCard.className = "user-card";
+
+                userCard.innerHTML = `
+                    <h2>${user.name}</h2>
+                    <p><strong>Roll:</strong> ${user.roll}</p>
+                    <p><strong>City:</strong> ${user.city}</p>
+                `;
+
+                userContainer.appendChild(userCard);
+            });
+        }
+
+        // Call function on page load
+        fetchUserData();
+    </script>
+
+</body>
+</html>
