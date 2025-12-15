@@ -57,6 +57,28 @@ app.put('/movies/:title', (req, res) => {
 
 });
 
+// with more error handling when post new movie
+
+app.post('/add-movies', (req, res) => { 
+
+   try{
+     const {title ,year} =req.body;
+    if(!title || !year){
+        return res.status(400).send("Please provide title and year");
+    }
+    if(typeof title !== 'string' || typeof year !== 'number'){
+        return res.status(400).send("Invalid data types for title or year");
+    }
+    let movies = JSON.parse(fs.readFileSync('./movies.json', 'utf8'));
+    movies.push({id : Date.now(), title, year});
+    fs.writeFileSync('./movies.json', JSON.stringify(movies, null, 2));
+    res.status(201).send("Movie added successfully");
+
+   }catch(err){
+    res.status(500).send("Internal Server Error");
+   }
+})
+
 
 
 app.listen(PORT, () => {
