@@ -1,0 +1,44 @@
+[
+  {
+    "id": 2,
+    "name": "Dhruvesh",
+    "age": 34,
+    "city": "Los Angeles"
+  },
+  {
+    "id": 3,
+    "name": "Priy",
+    "age": 22,
+    "city": "Chicago"
+  },
+  {
+    "id": 4,
+    "name": "Krish",
+    "age": 30,
+    "city": "Houston"
+  },
+  {
+    "id": 5,
+    "name": "Jagjeet",
+    "age": 27,
+    "city": "Phoenix"
+  },
+  {
+    "id": 6,
+    "name": "Mayank",
+    "age": 31,
+    "city": "Philadelphia"
+  },
+  {
+    "id": 7,
+    "name": "demo",
+    "age": 19,
+    "city": "test"
+  },
+  {
+    "id": 7,
+    "name": "Virali",
+    "age": 18,
+    "city": "Junagadh"
+  }
+]
