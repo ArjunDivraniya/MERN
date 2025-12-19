@@ -1,4 +1,5 @@
 import React , {useState , useEffect} from 'react'
+import './form.css'
 
 const Form = () => {
 
@@ -43,21 +44,35 @@ const Form = () => {
 
 
     }
-   return (
-   <>
-   <form onSubmit={handleclick}>
-    <input type='text' name='name' value={form.name} placeholder='Enter Name' onChange={handlechange} />
-   {(!form.name) && <div style={{color : "red"}}>{error}</div>}
-    <input type='email' name='email' value={form.email} placeholder='Enter Email' onChange={handlechange} />
-      {(!form.email) || (!form.email.includes("@")) || (!form.email.includes(".com")) && <div style={{color : "red"}}>{error}</div>}
+     return (
+     <>
+     <div className="form-container">
+        <form className="form-card" onSubmit={handleclick}>
+            <h2 className="form-title">Sign Up</h2>
 
-    <input type='password' name='password' value={form.password} placeholder='Enter Password' onChange={handlechange} />
-      {(!form.password) || (form.password.length < 6) && <div style={{color : "red"}}>{error}</div>}
-    <button type="submit" >Submit</button>
+            <div className="form-field">
+                <label>Name</label>
+                <input type='text' name='name' value={form.name} placeholder='Enter Name' onChange={handlechange} />
+                {(!form.name) && <div className="error-text">{error}</div>}
+            </div>
 
-   </form> 
-   </>
-  )
+            <div className="form-field">
+                <label>Email</label>
+                <input type='email' name='email' value={form.email} placeholder='Enter Email' onChange={handlechange} />
+                {((!form.email) || (!form.email.includes("@")) || (!form.email.includes(".com"))) && <div className="error-text">{error}</div>}
+            </div>
+
+            <div className="form-field">
+                <label>Password</label>
+                <input type='password' name='password' value={form.password} placeholder='Enter Password' onChange={handlechange} />
+                {((!form.password) || (form.password.length < 6)) && <div className="error-text">{error}</div>}
+            </div>
+
+            <button className="submit-btn" type="submit" >Submit</button>
+        </form>
+     </div>
+     </>
+    )
 }
 
 export default Form
