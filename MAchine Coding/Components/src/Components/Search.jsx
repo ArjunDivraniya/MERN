@@ -1,8 +1,10 @@
-import React from 'react'
+// import { set } from 'mongoose';
+import React, {useState} from 'react'
 
-const search = () => {
+const Search = () => {
     const [search, setSearch] = useState("");
     const [error, setError] = useState("")
+    const [filter, setFilter] = useState([])
 
     let data = [
         {
@@ -24,27 +26,45 @@ const search = () => {
         {
             name: "Mehta",
             adress: "Surat",
-            items: ["Printer", "Router", "Hard Disk"]
+            items: ["Printer", "laptop", "Hard Disk"]
         } 
     ]
 
-    const hadndlesearch = () => {
-        if (search.trim() == " ") {
+    const handlesearch = (e) => {
+        e.preventDefault();
+        if (search.trim() === "") {
             setSearch("Please enter searchh term");
             return;
         }
-       const result = data.filter((i) => i.name.includes(search.name.toLowerCase().trim()) || i.)
+       const result = data.filter((i) => i.name.includes(search.toLowerCase().trim()) || i.items.filter((item) => item.toLowerCase().trim().includes(search.toLowerCase().trim())).length > 0 );
+       setFilter(result);
+       setSearch("");
     }
     return (
         <>
             <div>
-                <form onClick={handlesearch}>
+                <form onSubmit={handlesearch}>
                     <input type='text' placeholder='search...' value={search} onChange={(e) => setSearch(e.target.value)} />
-                    <button tyoe='sebmit' >Search</button>
+                    <button type='submit' >Search</button>
                 </form>
+            </div>
+
+            <div>
+                {filter.map((item ,i)=> (
+                    <div key={i}>
+<h1>{item.name}</h1>
+<h3>{item.adress} </h3>
+<ul>
+    {item.items.map((it, i) => (
+        <li key={i}>{it}</li>
+    ))}
+</ul>
+
+                    </div>
+                ))}
             </div>
         </>
     )
 }
 
-export default search
+export default Search

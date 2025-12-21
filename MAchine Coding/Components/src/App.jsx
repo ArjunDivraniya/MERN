@@ -6,15 +6,17 @@ import Stopwatch from './Components/Stopwatch.jsx'
 import Counter from './Components/counter.jsx'
 import TodoTask from './Components/TodoTask.jsx'
 import Form from './Components/form.jsx'
+import Search from './Components/search.jsx'
 const App = () => {
   return (
     <>
    {/* <Posts /> */}
    {/* <Photos /> */}
    {/* <Stopwatch /> */}
-   <Counter />
+   {/* <Counter />
    <TodoTask/>
-   <Form/>
+   <Form/> */}
+   <Search/>
     </>
   )
 }
