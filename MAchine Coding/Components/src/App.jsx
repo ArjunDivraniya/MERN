@@ -19,6 +19,7 @@ import Protected from './Components/Auth/protected.jsx'
 import Signup from './Components/Auth/signup.jsx'
 import Debounced from './Components/Debounced.jsx'
 import StepForm from './Components/StepForm.jsx'
+import Timer from './Components/Timer.jsx'
 const App = () => {
   return (
     <>
@@ -50,7 +51,8 @@ const App = () => {
 </BrowserRouter> */}
 
   {/* <Debounced/> */}
-  <StepForm/>
+  {/* <StepForm/> */}
+  <Timer/>
 
 
 
