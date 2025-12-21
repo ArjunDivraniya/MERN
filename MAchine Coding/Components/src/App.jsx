@@ -17,6 +17,7 @@ import About from './Components/Auth/About.jsx'
 import Contect from './Components/Auth/Contect.jsx'
 import Protected from './Components/Auth/protected.jsx'
 import Signup from './Components/Auth/signup.jsx'
+import Debounced from './Components/Debounced.jsx'
 const App = () => {
   return (
     <>
@@ -33,7 +34,7 @@ const App = () => {
    <h1>Welcome to Theme Toggler App</h1>
    <h1>This is sample text to check theme toggling</h1>
 </ThemeProvider > */}
-<BrowserRouter>
+{/* <BrowserRouter>
 <Routes>
   <Route path='/' element={<Login/>}/>
   <Route path='/signup' element={<Signup/>}></Route>
@@ -44,8 +45,10 @@ const App = () => {
 <Route path='/contect' element={<Contect/>}/>
 </Routes>
 
-</BrowserRouter>
-  
+
+</BrowserRouter> */}
+
+  <Debounced/>
 
 
 
