@@ -18,6 +18,7 @@ import Contect from './Components/Auth/Contect.jsx'
 import Protected from './Components/Auth/protected.jsx'
 import Signup from './Components/Auth/signup.jsx'
 import Debounced from './Components/Debounced.jsx'
+import StepForm from './Components/StepForm.jsx'
 const App = () => {
   return (
     <>
@@ -48,7 +49,8 @@ const App = () => {
 
 </BrowserRouter> */}
 
-  <Debounced/>
+  {/* <Debounced/> */}
+  <StepForm/>
 
 
 
