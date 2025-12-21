@@ -7,6 +7,7 @@ import Counter from './Components/counter.jsx'
 import TodoTask from './Components/TodoTask.jsx'
 import Form from './Components/form.jsx'
 import Search from './Components/search.jsx'
+import TabComponent from './Components/TabComponent.jsx'
 const App = () => {
   return (
     <>
@@ -16,7 +17,9 @@ const App = () => {
    {/* <Counter />
    <TodoTask/>
    <Form/> */}
-   <Search/>
+   {/* <Search/> */}
+   <TabComponent/>
+
     </>
   )
 }
