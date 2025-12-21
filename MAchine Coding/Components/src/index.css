@@ -1,0 +1,32 @@
+/* Default (Light Theme) */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --btn-bg: #000000;
+  --btn-text: #ffffff;
+}
+
+/* Dark Theme */
+.dark {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --btn-bg: #ffffff;
+  --btn-text: #000000;
+}
+
+.app {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 40px;
+  transition: all 0.3s ease;
+}
+
+.theme-btn {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}

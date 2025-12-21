@@ -8,6 +8,8 @@ import TodoTask from './Components/TodoTask.jsx'
 import Form from './Components/form.jsx'
 import Search from './Components/search.jsx'
 import TabComponent from './Components/TabComponent.jsx'
+import ThemeToggle from './Components/ThemeToggle.jsx'
+import ThemeProvider from './Components/ThemeContext.jsx'
 const App = () => {
   return (
     <>
@@ -18,7 +20,14 @@ const App = () => {
    <TodoTask/>
    <Form/> */}
    {/* <Search/> */}
-   <TabComponent/>
+   {/* <TabComponent/> */}
+<ThemeProvider>
+   <ThemeToggle/>
+   <h1>Welcome to Theme Toggler App</h1>
+   <h1>This is sample text to check theme toggling</h1>
+</ThemeProvider >
+  
+
 
     </>
   )
