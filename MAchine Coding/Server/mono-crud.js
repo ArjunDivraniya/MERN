@@ -21,7 +21,7 @@ const userSchema =new mongoose.Schema({
         required : true,
     }
 })
-const User = mongoose.model('User' ,userSchema);
+const User = mongoose.model('user' ,userSchema);
 
 
 mongoose.connect('mongodb+srv://arjundivraniyacg_db_user:auth-jwt@cluster0.vqktaeo.mongodb.net/UserDB')
@@ -39,6 +39,21 @@ app.get('/users' , async (req,res) => {
     }
     catch(err){
         res.status(500).json({message : "Error fetching users"});
+    }
+})
+
+app.post('post/users' , async (req,res) => {
+    try{
+        const {name ,email ,password} = req.body;
+       const newuser = User.create({
+        name : name,
+        email : email,
+        password : password
+       })
+        
+        res.status(201).json(newuser);
+    }catch(err){
+        res.status(201).json(newuser);
     }
 })
 
