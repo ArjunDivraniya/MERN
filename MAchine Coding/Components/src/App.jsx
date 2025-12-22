@@ -20,6 +20,7 @@ import Signup from './Components/Auth/signup.jsx'
 import Debounced from './Components/Debounced.jsx'
 import StepForm from './Components/StepForm.jsx'
 import Timer from './Components/Timer.jsx'
+import ShoppingCart from './Components/ShoppingCart.jsx'
 const App = () => {
   return (
     <>
@@ -52,7 +53,8 @@ const App = () => {
 
   {/* <Debounced/> */}
   {/* <StepForm/> */}
-  <Timer/>
+  {/* <Timer/> */}
+  <ShoppingCart/>
 
 
 
