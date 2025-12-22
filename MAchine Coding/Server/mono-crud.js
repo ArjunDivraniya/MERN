@@ -24,13 +24,23 @@ const userSchema =new mongoose.Schema({
 const User = mongoose.model('User' ,userSchema);
 
 
-mongoose.connect('mongodb+srv://arjundivraniyacg_db_user:auth-jwt@cluster0.vqktaeo.mongodb.net/')
+mongoose.connect('mongodb+srv://arjundivraniyacg_db_user:auth-jwt@cluster0.vqktaeo.mongodb.net/UserDB')
 .then(() => {
     console.log("Connected to MongoDB");
 })
 .catch((err) => {
     console.error("Error connecting to MongoDB", err);
 });
+
+app.get('/users' , async (req,res) => {
+    try{
+        const users =await User.find();
+        res.json(users);
+    }
+    catch(err){
+        res.status(500).json({message : "Error fetching users"});
+    }
+})
 
 app.listen(3000 , () => {
     console.log("sserver With mongo Starting on port 3000");
