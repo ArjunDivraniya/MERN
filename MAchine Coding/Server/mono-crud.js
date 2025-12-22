@@ -16,12 +16,12 @@ const userSchema =new mongoose.Schema({
         unique : true,
         required : true
     },
-    passwors : {
+    password : {
         type : String,
         required : true,
     }
 })
-const User = mongoose.model('user' ,userSchema);
+const User = mongoose.model('User' ,userSchema);
 
 
 mongoose.connect('mongodb+srv://arjundivraniyacg_db_user:auth-jwt@cluster0.vqktaeo.mongodb.net/UserDB')
@@ -34,7 +34,7 @@ mongoose.connect('mongodb+srv://arjundivraniyacg_db_user:auth-jwt@cluster0.vqkta
 
 app.get('/users' , async (req,res) => {
     try{
-        const users =await User.find();
+        const users =await  User.find({});
         res.json(users);
     }
     catch(err){
@@ -42,10 +42,10 @@ app.get('/users' , async (req,res) => {
     }
 })
 
-app.post('post/users' , async (req,res) => {
+app.post('/post/user' , async (req,res) => {
     try{
         const {name ,email ,password} = req.body;
-       const newuser = User.create({
+       const newuser =  await User.create({
         name : name,
         email : email,
         password : password
@@ -53,10 +53,38 @@ app.post('post/users' , async (req,res) => {
         
         res.status(201).json(newuser);
     }catch(err){
-        res.status(201).json(newuser);
+        res.status(500).json({message : "Error creating user"});
     }
 })
 
-app.listen(3000 , () => {
-    console.log("sserver With mongo Starting on port 3000");
+app.put('/user', async (req, res)=>{
+    const { name } = req.query;
+    const {email,password} = req.body;
+    try{
+        const user = await User.findOneAndUpdate({name : name} , {email : email , password : password} , {new : true});
+        if(!user){
+            return res.status(404).json({message : "User not found"});
+        }
+        res.json(user);
+    }catch(err){
+        res.status(500).json({message : "Error updating user"});
+    }
 })
+
+app.delete('/user',async (req,res)=> {
+    const name = req.query.name;
+    try{
+        const user = await User.findOneAndDelete({name : name});
+        if(!user){
+            return res.status(404).json({message : "User not found"});
+        }
+        res.json({message : "User deleted successfully"});
+    }
+    catch(err){
+        res.status(500).json({message : "Error deleting user"});
+    }
+})
+
+app.listen(3000, () => {
+    console.log("Server is running on port 3000");
+});
