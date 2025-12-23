@@ -40,3 +40,16 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Theme Styles */
+body.light {
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

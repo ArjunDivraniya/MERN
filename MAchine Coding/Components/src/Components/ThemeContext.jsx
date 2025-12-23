@@ -10,12 +10,15 @@ const ThemeProvider = ({children}) => {
   }
   useEffect(()=>{
     localStorage.setItem('theme',theme);
+    document.documentElement.className = theme;
   },[theme])
 
   return (
-    <ThemeContext.Provider value={{ theme, toggletheme }}>
-      {children}
-    </ThemeContext.Provider>
+    <div className={`app ${theme}`}>
+      <ThemeContext.Provider value={{ theme, toggletheme }}>
+        {children}
+      </ThemeContext.Provider>
+    </div>
   )
 }
 
