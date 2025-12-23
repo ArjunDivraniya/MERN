@@ -33,11 +33,11 @@ const App = () => {
    <Form/> */}
    {/* <Search/> */}
    {/* <TabComponent/> */}
-{/* <ThemeProvider>
+<ThemeProvider>
    <ThemeToggle/>
    <h1>Welcome to Theme Toggler App</h1>
    <h1>This is sample text to check theme toggling</h1>
-</ThemeProvider > */}
+</ThemeProvider >
 {/* <BrowserRouter>
 <Routes>
   <Route path='/' element={<Login/>}/>
@@ -56,7 +56,7 @@ const App = () => {
   {/* <StepForm/> */}
   {/* <Timer/> */}
   {/* <ShoppingCart/> */}
-<Model/>
+{/* <Model/> */}
 
 
     </>
