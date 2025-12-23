@@ -54,7 +54,7 @@ const App = () => {
   {/* <Debounced/> */}
   {/* <StepForm/> */}
   {/* <Timer/> */}
-  <ShoppingCart/>
+  {/* <ShoppingCart/> */}
 
 
 
